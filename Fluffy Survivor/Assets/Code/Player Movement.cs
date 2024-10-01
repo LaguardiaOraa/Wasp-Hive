@@ -38,9 +38,8 @@ public class PlayerMovement : MonoBehaviour
             //Falta el Game Over
             foreach (GameObject enemy in enemies)
             {
-                // Desactiva el GameObject del enemigo para detener su comportamiento
-                enemy.SetActive(false);
-                Application.Quit();
+                
+                SceneManager.LoadScene(2);
             }
             
         }

@@ -7,6 +7,9 @@ public class Spawner : MonoBehaviour
     public GameObject enemigoPrefab; // Referencia al prefab del objeto que está desactivado
     public int numEnemigos = 2;      // Número de enemigos a instanciar
 
+    public GameObject Cura;
+    public int numPowerUP = 1;
+
     //Declaro el temporizador, Serialized establece que no puede ser modificado ni accedido fuera de este script
     [SerializeField] public float timeRemaining = 30;
 
@@ -34,6 +37,24 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    void SpawnPowerUP()
+    {
+        for (int i = 0; i < numPowerUP; i++)
+        {
+            // Genera una posición aleatoria entre X 9 y Y 4
+            float randomX = Random.Range(-9f, 9f);
+            float randomY = Random.Range(-4f, 4f);
+
+            // Crea un Vector2 con la posición generada
+            Vector2 randomPosition = new Vector2(randomX, randomY);
+
+            // Instancia el objeto en la posición aleatoria, pero desactivado
+            GameObject clon = Instantiate(Cura, randomPosition, Quaternion.identity);
+
+            // Activa el clon después de instanciarlo
+            clon.SetActive(true);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +66,7 @@ public class Spawner : MonoBehaviour
         {
             //Aquí el spawneo
             SpawnEnemigos();
+            SpawnPowerUP();
             timeRemaining = 30;
         }
     }

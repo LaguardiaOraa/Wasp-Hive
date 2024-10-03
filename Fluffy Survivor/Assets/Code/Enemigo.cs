@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemigoMovement : MonoBehaviour
 {
-    public float speed = 5f;  // Velocidad de Movimiento
+    private float speed = 5f;  // Velocidad de Movimiento
     private Vector2 direction; // To store the random direction
 
     // Start is called before the first frame update
@@ -43,7 +43,7 @@ public class EnemigoMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemigo") // Verifica si colisiona con otro objeto "Enemigo"
         {
-            Debug.Log("Colisión detectada con otro Enemigo"); //Cada vez que se active que suelte una linea en el log
+            //Debug.Log("Colisión detectada con otro Enemigo"); //Cada vez que se active que suelte una linea en el log
             ContactPoint2D contactPoint = collision.GetContact(0); //Registra el primer punto de contacto
             Vector2 normal = contactPoint.normal;
             direction = Vector2.Reflect(direction, normal); // Y aqui invertimos la direccion

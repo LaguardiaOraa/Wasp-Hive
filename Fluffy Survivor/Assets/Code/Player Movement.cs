@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -34,15 +34,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemigo") // Verifica si colisiona con otro objeto "Enemigo"
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemigo");
-            //Falta el Game Over
-            foreach (GameObject enemy in enemies)
-            {
-                SceneManager.LoadScene(2);
-            }
-            
+            HealthController.salud -= 1;
+            StartCoroutine(Invencivilidad());
+            //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemigo");
+            //foreach (GameObject enemy in enemies) {}
         }
     }
-
+    IEnumerator Invencivilidad() 
+    {
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = Color.green;
+        yield return new WaitForSeconds(5);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<Collider2D>().enabled = true;
+        
+    }
     
 }

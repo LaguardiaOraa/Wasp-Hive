@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
             //Falta el Game Over
             foreach (GameObject enemy in enemies)
             {
-                
                 SceneManager.LoadScene(2);
             }
             

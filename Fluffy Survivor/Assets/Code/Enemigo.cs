@@ -7,9 +7,16 @@ public class EnemigoMovement : MonoBehaviour
     private float speed = 5f;  // Velocidad de Movimiento
     private Vector2 direction; // To store the random direction
 
+    //Elegimos la fuente de audio
+    private AudioSource Aplayer;
+    //El array donde meteremos todos los clips
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Provoca que seleccione automaticamente como audiosource al objeto que tenga el script
+        Aplayer = GetComponent<AudioSource>();
         // Genera una dirección aleatoria para el eje X y el eje Y
         float randomX = Random.Range(-1f, 1f);
         float randomY = Random.Range(-1f, 1f);
@@ -43,6 +50,7 @@ public class EnemigoMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemigo") // Verifica si colisiona con otro objeto "Enemigo"
         {
+            AudioController.hit += 1;
             //Debug.Log("Colisión detectada con otro Enemigo"); //Cada vez que se active que suelte una linea en el log
             ContactPoint2D contactPoint = collision.GetContact(0); //Registra el primer punto de contacto
             Vector2 normal = contactPoint.normal;

@@ -6,10 +6,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject usuario;
+    //Elegimos la fuente de audio
+    private AudioSource Aplayer;
+    //El array donde meteremos todos los clips
+    public AudioClip[] clip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Aplayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,10 +38,24 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemigo") // Verifica si colisiona con otro objeto "Enemigo"
         {
+            //Especificamos que el clip a seleccionar coincide con el numero de nuestro valorRandom
+            Aplayer.clip = clip[0];
+            //Reproducimos el clip
+            Aplayer.Play();
             HealthController.salud -= 1;
             StartCoroutine(Invencivilidad());
             //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemigo");
             //foreach (GameObject enemy in enemies) {}
+
+            
+        }
+        if (collision.gameObject.tag == "Untagged") // Verifica si colisiona con otro objeto "Enemigo"
+        {
+            //Especificamos que el clip a seleccionar coincide con el numero de nuestro valorRandom
+            Aplayer.clip = clip[1];
+            //Reproducimos el clip
+            Aplayer.Play();
+
         }
     }
     IEnumerator Invencivilidad() 

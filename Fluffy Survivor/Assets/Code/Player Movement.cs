@@ -46,6 +46,16 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Invencivilidad());
             //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemigo");
             //foreach (GameObject enemy in enemies) {}
+
+            
+        }
+        if (collision.gameObject.tag == "Untagged") // Verifica si colisiona con otro objeto "Enemigo"
+        {
+            //Especificamos que el clip a seleccionar coincide con el numero de nuestro valorRandom
+            Aplayer.clip = clip[1];
+            //Reproducimos el clip
+            Aplayer.Play();
+
         }
     }
     IEnumerator Invencivilidad() 

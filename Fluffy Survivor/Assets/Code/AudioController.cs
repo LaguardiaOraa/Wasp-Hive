@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    public static int hit = 0;
     //Elegimos la fuente de audio
     private AudioSource Aplayer;
     //El array donde meteremos todos los clips
@@ -16,6 +17,15 @@ public class AudioController : MonoBehaviour
         Aplayer = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        if (hit == 1) 
+        {
+            Aplayer.Play();
+            hit = 0;
+        }
 
-   
+    }
+
+
 }

@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
             
         }
-        if (collision.gameObject.tag == "Untagged") // Verifica si colisiona con otro objeto "Enemigo"
+        if (collision.gameObject.tag == "Cura") // Verifica si colisiona con otro objeto "Enemigo"
         {
             //Especificamos que el clip a seleccionar coincide con el numero de nuestro valorRandom
             Aplayer.clip = clip[1];

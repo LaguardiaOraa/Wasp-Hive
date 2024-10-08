@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject enemigoPrefab; // Referencia al prefab del objeto que está desactivado
-    public int numEnemigos = 2;      // Número de enemigos a instanciar
+    public GameObject enemigoPrefab; // Referencia al prefab del objeto que estï¿½ desactivado
+    public int numEnemigos = 2;      // Nï¿½mero de enemigos a instanciar
 
     public GameObject Cura;
+    public GameObject BajarDificultad;
     public int numPowerUP = 1;
 
+    private int WichPU;
+
     //Declaro el temporizador, Serialized establece que no puede ser modificado ni accedido fuera de este script
-    [SerializeField] public float timeRemaining = 30;
+    [SerializeField] private float timeRemaining = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -22,17 +25,17 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < numEnemigos; i++)
         {
-            // Genera una posición aleatoria entre X 9 y Y 4
+            // Genera una posiciï¿½n aleatoria entre X 9 y Y 4
             float randomX = Random.Range(-9f, 9f);
             float randomY = Random.Range(-4f, 4f);
 
-            // Crea un Vector2 con la posición generada
+            // Crea un Vector2 con la posiciï¿½n generada
             Vector2 randomPosition = new Vector2(randomX, randomY);
 
-            // Instancia el objeto en la posición aleatoria, pero desactivado
+            // Instancia el objeto en la posiciï¿½n aleatoria, pero desactivado
             GameObject clon = Instantiate(enemigoPrefab, randomPosition, Quaternion.identity);
 
-            // Activa el clon después de instanciarlo
+            // Activa el clon despuï¿½s de instanciarlo
             clon.SetActive(true);
         }
     }
@@ -41,18 +44,28 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < numPowerUP; i++)
         {
-            // Genera una posición aleatoria entre X 9 y Y 4
+            // Genera una posiciï¿½n aleatoria entre X 9 y Y 4
             float randomX = Random.Range(-9f, 9f);
             float randomY = Random.Range(-4f, 4f);
 
-            // Crea un Vector2 con la posición generada
+            // Crea un Vector2 con la posiciï¿½n generada
             Vector2 randomPosition = new Vector2(randomX, randomY);
+            WichPU=Random.Range(0,100);
+            if(WichPU>=70)
+            {
+                GameObject clon = Instantiate(Cura, randomPosition, Quaternion.identity);
+                clon.SetActive(true);
+            }
+            else
+            {
+                GameObject clon = Instantiate(BajarDificultad, randomPosition, Quaternion.identity);
+                clon.SetActive(true);
+            }
+            // Instancia el objeto en la posiciï¿½n aleatoria, pero desactivado
+            //GameObject clon = Instantiate(Cura, randomPosition, Quaternion.identity);
 
-            // Instancia el objeto en la posición aleatoria, pero desactivado
-            GameObject clon = Instantiate(Cura, randomPosition, Quaternion.identity);
-
-            // Activa el clon después de instanciarlo
-            clon.SetActive(true);
+            // Activa el clon despuï¿½s de instanciarlo
+            
         }
     }
     // Update is called once per frame
@@ -64,8 +77,9 @@ public class Spawner : MonoBehaviour
         }
         else
         {
-            //Aquí el spawneo
+            //Aquï¿½ el spawneo
             SpawnEnemigos();
+            
             SpawnPowerUP();
             timeRemaining = 30;
         }

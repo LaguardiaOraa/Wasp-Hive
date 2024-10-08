@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemigo
   - Spawner
+  - Cura
   layers:
   - Default
   - TransparentFX

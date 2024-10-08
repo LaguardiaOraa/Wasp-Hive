@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour
             // Crea un Vector2 con la posici�n generada
             Vector2 randomPosition = new Vector2(randomX, randomY);
             WichPU=Random.Range(0,100);
-            if(WichPU>=70)
+            if(WichPU>=50)
             {
                 GameObject clon = Instantiate(Cura, randomPosition, Quaternion.identity);
                 clon.SetActive(true);

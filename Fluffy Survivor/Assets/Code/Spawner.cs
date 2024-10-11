@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject enemigoPrefab; // Referencia al prefab del objeto que est� desactivado
+    public GameObject enemigoBasico; // Referencia al prefab del objeto que est� desactivado
+    public GameObject enemigoVeloz;
+    public GameObject enemigoFuerte;
     public int numEnemigos = 2;      // N�mero de enemigos a instanciar
 
     public GameObject Cura;
@@ -32,11 +34,28 @@ public class Spawner : MonoBehaviour
             // Crea un Vector2 con la posici�n generada
             Vector2 randomPosition = new Vector2(randomX, randomY);
 
-            // Instancia el objeto en la posici�n aleatoria, pero desactivado
-            GameObject clon = Instantiate(enemigoPrefab, randomPosition, Quaternion.identity);
-
-            // Activa el clon despu�s de instanciarlo
-            clon.SetActive(true);
+            if (DifficultyBar.dificultad <= 100 && DifficultyBar.dificultad >= 66)
+            {
+                // Instancia el objeto en la posici�n aleatoria, pero desactivado
+                GameObject clon = Instantiate(enemigoBasico, randomPosition, Quaternion.identity);
+                // Activa el clon despu�s de instanciarlo
+                clon.SetActive(true);
+            }
+            else if (DifficultyBar.dificultad < 66 && DifficultyBar.dificultad >= 33)
+            {
+                // Instancia el objeto en la posici�n aleatoria, pero desactivado
+                //GameObject clon = Instantiate(enemigoVeloz, randomPosition, Quaternion.identity);
+                // Activa el clon despu�s de instanciarlo
+                //clon.SetActive(true);
+            }
+            else
+            {
+                // Instancia el objeto en la posici�n aleatoria, pero desactivado
+                //GameObject clon = Instantiate(enemigoFuerte, randomPosition, Quaternion.identity);
+                // Activa el clon despu�s de instanciarlo
+                //clon.SetActive(true);
+            }
+            
         }
     }
 
@@ -73,13 +92,13 @@ public class Spawner : MonoBehaviour
     {
         if (timeRemaining > 0)
         {
+            DifficultyBar.dificultad -= 0.001f;
             timeRemaining -= Time.deltaTime;
         }
         else
         {
             //Aqu� el spawneo
             SpawnEnemigos();
-            
             SpawnPowerUP();
             timeRemaining = 30;
         }

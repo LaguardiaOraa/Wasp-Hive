@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool isPaused; // Flag to track pause state
+    private bool isPaused = false; // Flag to track pause state
     public GameObject pauseMenuUI; // Reference to the PauseMenu UI panel
 
     void Update()

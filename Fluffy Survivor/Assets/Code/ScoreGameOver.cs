@@ -9,16 +9,10 @@ public class ScoreGameOver : MonoBehaviour
 
     void Start()
     {
-        // Load the saved score
-        score = PlayerPrefs.GetInt("HighScore", 0);
-        Debug.Log("Score loaded: " + score); // Debugging line to confirm load
-        // Update the UI Text with the score
-        UpdateScoreText();
-    }
+        // Get the score from PlayerPrefs (this is the score from the last game)
+        int lastScore = PlayerPrefs.GetInt("LastScore", 0);
 
-    void UpdateScoreText()
-    {
-        // Set the Text to display the score
-        scoreText.text = "Score: " + score.ToString();
+        // Display the score on the Game Over screen
+        scoreText.text = "Your Score: " + lastScore.ToString();
     }
 }

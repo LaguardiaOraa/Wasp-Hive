@@ -16,6 +16,19 @@ public class HealthController : MonoBehaviour
         vida3.gameObject.SetActive(true);
     }
 
+    public void SaveFinalScore()
+    {
+        // Save the score to PlayerPrefs
+        PlayerPrefs.SetInt("LastScore", Timer.Score);
+        PlayerPrefs.Save();
+    }
+
+    void OnGameOver()
+    {
+        // Example: Call SaveFinalScore when the game is over
+        SaveFinalScore();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +58,7 @@ public class HealthController : MonoBehaviour
                 vida1.SetActive(false);
                 vida2.SetActive(false);
                 vida3.SetActive(false);
+                OnGameOver();
                 SceneManager.LoadScene(2);
                 break;
         }

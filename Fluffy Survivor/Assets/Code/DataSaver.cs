@@ -5,9 +5,18 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class DataSaver : MonoBehaviour
 {
-    void Update()
+    // Call this when the game is over and the final score is available
+    public void SaveFinalScore()
     {
-        PlayerPrefs.SetInt("HighScore", Timer.Score); // Save the score with the key "HighScore"
-        PlayerPrefs.Save(); // Ensure it's written to disk
+        // Save the score to PlayerPrefs
+        PlayerPrefs.SetInt("LastScore", Timer.Score);
+        PlayerPrefs.Save();
     }
+
+    void OnGameOver()
+    {
+        // Example: Call SaveFinalScore when the game is over
+        SaveFinalScore();
+    }
+
 }

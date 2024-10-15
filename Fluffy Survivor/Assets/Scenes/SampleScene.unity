@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c978d47f4bfce4394cc01f5980df58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuP: {fileID: 474797424}
+  menuPanel: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2288,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2059493690136225117, guid: 319135f3c7fc42f45badb1fa252a419b, type: 3}
+      propertyPath: bounceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0756b9bfdbe9a54cbb72c230a049c1b, type: 3}
     - target: {fileID: 3591361250775504106, guid: 319135f3c7fc42f45badb1fa252a419b, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -2443,6 +2447,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: e0756b9bfdbe9a54cbb72c230a049c1b, type: 3}
     - target: {fileID: 5698331234810374308, guid: 429ec565cdca7f949be27b991e5c78d8, type: 3}
+      propertyPath: bounceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0756b9bfdbe9a54cbb72c230a049c1b, type: 3}
+    - target: {fileID: 5698331234810374308, guid: 429ec565cdca7f949be27b991e5c78d8, type: 3}
       propertyPath: clip.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2503,6 +2511,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3700698504739808903, guid: 341969bdc919921439ee271bac224004, type: 3}
+      propertyPath: bounceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0756b9bfdbe9a54cbb72c230a049c1b, type: 3}
     - target: {fileID: 6015346482696580254, guid: 341969bdc919921439ee271bac224004, type: 3}
       propertyPath: m_BodyType
       value: 1

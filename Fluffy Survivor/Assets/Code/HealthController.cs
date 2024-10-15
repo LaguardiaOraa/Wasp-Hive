@@ -7,7 +7,6 @@ public class HealthController : MonoBehaviour
 {
     public GameObject vida1, vida2, vida3;
     public static int salud;
-    // Start is called before the first frame update
     void Start()
     {
         salud = 3;
@@ -18,18 +17,15 @@ public class HealthController : MonoBehaviour
 
     public void SaveFinalScore()
     {
-        // Save the score to PlayerPrefs
         PlayerPrefs.SetInt("LastScore", Timer.Score);
         PlayerPrefs.Save();
     }
 
     void OnGameOver()
-    {
-        // Example: Call SaveFinalScore when the game is over
+    {    
         SaveFinalScore();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(salud > 3) 

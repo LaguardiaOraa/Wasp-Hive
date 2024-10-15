@@ -7,7 +7,7 @@ public class PoweUP_Cura : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player") // Verifica si colisiona con Jugador
+        if (collision.gameObject.tag == "Player")
         {
             Timer.Score += 100;
             HealthController.salud += 1;

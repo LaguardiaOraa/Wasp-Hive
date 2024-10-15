@@ -4,37 +4,25 @@ using UnityEngine;
 
 public class EnemigoFuerte : MonoBehaviour
 {
-    private float speed = 2f;  // Velocidad de Movimiento
-    private Vector2 direction; // To store the random direction
+    private float speed = 2f;
+    private Vector2 direction;
 
-    //Elegimos la fuente de audio
     private AudioSource Aplayer;
-    //El array donde meteremos todos los clips
     public AudioClip clip;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Provoca que seleccione automaticamente como audiosource al objeto que tenga el script
         Aplayer = GetComponent<AudioSource>();
-        // Genera una dirección aleatoria para el eje X y el eje Y
         float randomX = Random.Range(-1f, 1f);
         float randomY = Random.Range(-1f, 1f);
-
-        //Normalized --> Mantiene la velocidad constante de otra forma esta varía dependiendo de cuanta distancia ha de recorrer
         direction = new Vector2(randomX, randomY).normalized;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Aquí definimos la direccion y la velocidad
         transform.Translate(direction * speed * Time.deltaTime);
-
-        // Esto establece la "existencia" de la camara como algo "tangible" dentro del mundo del juego, para poder interactuar con ella
         Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
-        //Verificar si ha tocado el borde y lo hace rebotar
         if (transform.position.x > screenBounds.x || transform.position.x < -screenBounds.x)
         {
             direction.x = -direction.x;
@@ -45,10 +33,9 @@ public class EnemigoFuerte : MonoBehaviour
         }
     }
 
-    //Si colisiona con otro como el, rebote
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemigo") // Verifica si colisiona con otro objeto "Enemigo"
+        if (collision.gameObject.tag == "Enemigo")
         {
             Aplayer.clip = clip;
             Aplayer.Play();

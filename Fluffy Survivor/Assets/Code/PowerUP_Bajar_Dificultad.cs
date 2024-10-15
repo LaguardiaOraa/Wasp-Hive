@@ -6,7 +6,7 @@ public class PowerUP_Bajar_Dificultad : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player") // Verifica si colisiona con Jugador
+        if (collision.gameObject.tag == "Player")
         {
             Timer.Score += 50;
             DifficultyBar.dificultad += 30f;

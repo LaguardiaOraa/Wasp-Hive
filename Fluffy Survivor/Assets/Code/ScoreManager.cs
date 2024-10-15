@@ -2,25 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText; // Reference to the UI Text component to display the top 5 scores
-
-    // List to store top 5 scores
+    public TextMeshProUGUI scoreText;
     private List<int> topScores = new List<int>();
 
     void Start()
     {
-        // Load the top scores when the main menu is loaded
         LoadScores();
-
-        // Get the last score saved from the previous gameplay session
         int lastScore = PlayerPrefs.GetInt("LastScore", 0);
-
-        // Add the last score to the list and update the top 5 scores
         AddNewScore(lastScore);
-
-        // Display the updated scores in the main menu
         DisplayScores();
     }
 
@@ -65,4 +57,3 @@ public class ScoreManager : MonoBehaviour
         }
     }
 }
-

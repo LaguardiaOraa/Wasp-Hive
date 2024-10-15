@@ -9,7 +9,9 @@ public class PoweUP_Cura : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") // Verifica si colisiona con Jugador
         {
+            Timer.Score += 100;
             HealthController.salud += 1;
+            Debug.Log("+100 Puntos");
             this.gameObject.SetActive(false);
         }
     }

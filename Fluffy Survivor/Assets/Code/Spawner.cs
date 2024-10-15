@@ -44,16 +44,16 @@ public class Spawner : MonoBehaviour
             else if (DifficultyBar.dificultad < 66 && DifficultyBar.dificultad >= 33)
             {
                 // Instancia el objeto en la posici�n aleatoria, pero desactivado
-                //GameObject clon = Instantiate(enemigoVeloz, randomPosition, Quaternion.identity);
+                GameObject clon = Instantiate(enemigoVeloz, randomPosition, Quaternion.identity);
                 // Activa el clon despu�s de instanciarlo
-                //clon.SetActive(true);
+                clon.SetActive(true);
             }
             else
             {
                 // Instancia el objeto en la posici�n aleatoria, pero desactivado
-                //GameObject clon = Instantiate(enemigoFuerte, randomPosition, Quaternion.identity);
+                GameObject clon = Instantiate(enemigoFuerte, randomPosition, Quaternion.identity);
                 // Activa el clon despu�s de instanciarlo
-                //clon.SetActive(true);
+                clon.SetActive(true);
             }
             
         }

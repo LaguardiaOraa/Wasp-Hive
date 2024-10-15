@@ -8,8 +8,9 @@ public class PowerUP_Bajar_Dificultad : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") // Verifica si colisiona con Jugador
         {
+            Timer.Score += 50;
             DifficultyBar.dificultad += 30f;
-            //Aqui el codigo
+            Debug.Log("+100 Puntos");
             this.gameObject.SetActive(false);
         }
     }

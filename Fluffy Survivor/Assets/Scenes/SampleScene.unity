@@ -253,7 +253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 23, y: 1002}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &106226956 stripped
@@ -850,6 +850,7 @@ GameObject:
   - component: {fileID: 522479854}
   - component: {fileID: 522479855}
   - component: {fileID: 522479856}
+  - component: {fileID: 522479857}
   m_Layer: 0
   m_Name: 'Game Controller '
   m_TagString: Untagged
@@ -996,6 +997,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 474797424}
+--- !u!114 &522479857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522479852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ffeda031f8e54429cb10a887d317c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &604658228
 GameObject:
   m_ObjectHideFlags: 0
